@@ -89,8 +89,10 @@ public class GameLauncher extends JFrame implements ActionListener{
         
         else if (e.getSource() == gameButton) {
             // Open the game menu
-            JOptionPane.showMessageDialog(this, "WORDLE GAME", "WORDLE", JOptionPane.INFORMATION_MESSAGE); 
-            // TO BE IMPLEMENTED, CREATE NEW CLASS ex:"WORDLE GAME"
+            dispose();
+            //JOptionPane.showMessageDialog(this, "WORDLE GAME", "WORDLE", JOptionPane.INFORMATION_MESSAGE); 
+            new WordleGame();
+            
         } 
         
         else if (e.getSource() == exitButton) { // add the exit button handling
