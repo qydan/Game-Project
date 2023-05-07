@@ -9,6 +9,7 @@ public class GameLauncher extends JFrame implements ActionListener{
     JPanel p1, p2, p3, buttonPanel;
 
     public GameLauncher() {
+
         // Set the window title and size
         setTitle("WORDLE Game Launcher");
         setSize(400, 300);
@@ -42,6 +43,7 @@ public class GameLauncher extends JFrame implements ActionListener{
         exitButton.setBackground(Color.BLACK);
         exitButton.addActionListener(this); // add the action listener
 
+        //Panels to space out buttons and create a border
         p1 = new JPanel();
         p2 = new JPanel();
         p3 = new JPanel();
@@ -49,6 +51,16 @@ public class GameLauncher extends JFrame implements ActionListener{
         p2.setBackground(Color.DARK_GRAY);
         p3.setBackground(Color.DARK_GRAY);
         
+
+        //Adding to button panel
+        buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(3, 1, 10, 10)); // increase the grid layout to 3 rows
+        buttonPanel.setBackground(Color.DARK_GRAY);
+        buttonPanel.add(gameButton);
+        buttonPanel.add(instructionsButton);
+        buttonPanel.add(exitButton); // add the exit button to the panel
+
+
         // Add the components to the content pane
         Container contentPane = getContentPane();
         contentPane.setBackground(Color.DARK_GRAY);
@@ -57,19 +69,11 @@ public class GameLauncher extends JFrame implements ActionListener{
         contentPane.add(p1, BorderLayout.EAST);
         contentPane.add(p2, BorderLayout.WEST);
         contentPane.add(p3, BorderLayout.SOUTH);
-
-
-        buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(3, 1, 10, 10)); // increase the grid layout to 3 rows
-        buttonPanel.setBackground(Color.DARK_GRAY);
-        buttonPanel.add(gameButton);
-        buttonPanel.add(instructionsButton);
-        buttonPanel.add(exitButton); // add the exit button to the panel
-
         contentPane.add(buttonPanel, BorderLayout.CENTER);
+        
     }
 
-    // Handle button clicks
+    // action performed mehtod to handle button clicks
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == instructionsButton) {
@@ -80,12 +84,13 @@ public class GameLauncher extends JFrame implements ActionListener{
                     "3. Color tiles will indicate how close your guess was to the word.\n" +
                     "    - Green indicates letter is in the word and correct spot.\n" +
                     "    - Yellow inidcates letter is in the word but incorrect spot.\n" + 
-                    "    - Grey indicates letter is not in the word.\n");
+                    "    - Grey indicates letter is not in the word.\n", "Instructions", JOptionPane.INFORMATION_MESSAGE);
         } 
         
         else if (e.getSource() == gameButton) {
             // Open the game menu
-            JOptionPane.showMessageDialog(this, "WORDLE GAME"); // To be implemented
+            JOptionPane.showMessageDialog(this, "WORDLE GAME", "WORDLE", JOptionPane.INFORMATION_MESSAGE); 
+            // TO BE IMPLEMENTED, CREATE NEW CLASS ex:"WORDLE GAME"
         } 
         
         else if (e.getSource() == exitButton) { // add the exit button handling
@@ -94,8 +99,5 @@ public class GameLauncher extends JFrame implements ActionListener{
 
     }
 
-    public static void main(String[] args) {
-        GameLauncher launcher = new GameLauncher();
-        launcher.setVisible(true);
-    }
 }
+
