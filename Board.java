@@ -5,13 +5,21 @@ public class Board {
     public String word;
 
     public Board() {
+
         initialize();
+
     }
 
     public void initialize() {
 
         word = WordList.getRandomWord();
 
+    }
+
+    public String getWord(){
+
+        return word;
+        
     }
 
     @Deprecated
