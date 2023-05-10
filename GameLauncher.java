@@ -12,7 +12,7 @@ public class GameLauncher extends JFrame implements ActionListener{
 
         // Set the window title and size
         setTitle("WORDLE Game Launcher");
-        setSize(400, 300);
+        setSize(500, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -89,9 +89,8 @@ public class GameLauncher extends JFrame implements ActionListener{
         
         else if (e.getSource() == gameButton) {
             // Open the game menu
-            //JOptionPane.showMessageDialog(this, "WORDLE GAME", "WORDLE", JOptionPane.INFORMATION_MESSAGE); 
-            setVisible(false);
-            new WordleGame();
+            dispose();
+            new WordleGame().setVisible(true);;
             
         } 
         
