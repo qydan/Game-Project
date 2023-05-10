@@ -4,13 +4,13 @@ public class WordList {
 
     public static final String[] wordList = new String[] {
 
-            "lmfao",
-            "python",
-            "apple",
-            "funny",
-            "mouse",
-            "viper",
-            "phone"
+            "LMFAO",
+            "PYTHON",
+            "APPLE",
+            "FUNNY",
+            "MOUSE",
+            "VIPER",
+            "PHONE"
 
     };
 
