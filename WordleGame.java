@@ -6,19 +6,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.*;
 
 class WordleGame extends JFrame implements ActionListener {
     private JTextField inputField;
     private JButton guessButton;
     //private JLabel resultLabel, wordLabel;
     private JPanel inputPanel, resultPanel, wordPanel;
-
     private int currentGuess;
-
     private List<List<JLabel>> labelList = new ArrayList<>();
     private Board gameBoard;
 
@@ -33,7 +33,13 @@ class WordleGame extends JFrame implements ActionListener {
 
         // create components
         inputField = new JTextField();
+        inputField.setFont(new Font("SansSerif", Font.BOLD, 18));
+        inputField.setPreferredSize(new Dimension(300, 50));
         guessButton = new JButton("Check Guess");
+        guessButton.setFont(new Font("SansSerif", Font.BOLD, 18));
+        guessButton.setForeground(Color.WHITE);
+        guessButton.setBackground(Color.BLACK);
+        inputField.setPreferredSize(new Dimension(300, 50));
         guessButton.addActionListener(this);
 
         // add components to inputpanel
@@ -41,6 +47,7 @@ class WordleGame extends JFrame implements ActionListener {
         inputPanel.setLayout(new BorderLayout());
         inputPanel.add(inputField, BorderLayout.NORTH);
         inputPanel.add(guessButton, BorderLayout.CENTER);
+        inputPanel.setPreferredSize(new Dimension(300, 100));
 
         //resultLabel = new JLabel();
         resultPanel = new JPanel();
@@ -62,8 +69,6 @@ class WordleGame extends JFrame implements ActionListener {
         //add(wordPanel, BorderLayout.SOUTH);
 
         // add action listener to guess button
-
-        setVisible(true);
     }
 
     private void initLabels() {
@@ -78,7 +83,7 @@ class WordleGame extends JFrame implements ActionListener {
 
                 JLabel label = new JLabel();
                 label.setForeground(Color.WHITE);
-                label.setBounds(width * cols + width, width * rows + width, width, width);
+                label.setBounds(width * cols + 52, width * rows + 33, width, width);
                 label.setText("[ ]");
                 tempLabels.add(label);
                 resultPanel.add(label);
@@ -107,7 +112,7 @@ class WordleGame extends JFrame implements ActionListener {
 
         if (e.getSource() == guessButton) {
 
-            String textIn = inputField.getText().toLowerCase();
+            String textIn = inputField.getText().toUpperCase();
 
             if (!validateText(textIn)) return;
 
@@ -126,13 +131,13 @@ class WordleGame extends JFrame implements ActionListener {
 
             }
 
-            /* this is the condition for if the user has guessed correctly to be implemented
-            if (textIn.equals("hidden word")){
+            
+            if (textIn.equals(gameBoard.getWord())){
                 dispose();
                 JOptionPane.showMessageDialog(this, "YOU WON!","CONGRATULATIONS", JOptionPane.INFORMATION_MESSAGE);
-                setVisible(true);
+                new GameLauncher().setVisible(true);;
             }
-            */
+            
 
 
             currentGuess++;
