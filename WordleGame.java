@@ -16,8 +16,7 @@ import java.awt.*;
 class WordleGame extends JFrame implements ActionListener {
     private JTextField inputField;
     private JButton guessButton;
-    //private JLabel resultLabel, wordLabel;
-    private JPanel inputPanel, resultPanel, wordPanel;
+    private JPanel inputPanel, resultPanel;
     private int currentGuess;
     private List<List<JLabel>> labelList = new ArrayList<>();
     private Board gameBoard;
@@ -56,19 +55,10 @@ class WordleGame extends JFrame implements ActionListener {
 
         initLabels();
 
-        //resultPanel.add(resultLabel);
-
-        //wordLabel = new JLabel();
-        //wordPanel = new JPanel();
-        //wordPanel.set
-        //wordPanel.add(wordLabel);
-        //resultPanel.setBackground(Color.RED);
         // add panels to frame
         add(inputPanel, BorderLayout.NORTH);
         add(resultPanel, BorderLayout.CENTER);
-        //add(wordPanel, BorderLayout.SOUTH);
 
-        // add action listener to guess button
     }
 
     private void initLabels() {
