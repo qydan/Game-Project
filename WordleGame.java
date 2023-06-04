@@ -98,13 +98,25 @@ class WordleGame extends JFrame implements ActionListener {
         repaint();
 
     }
-
-    public boolean validateText(String t) {
+   public boolean validateText(String t) {
 
         if (t.length() != 5) return false;
-        //add more conditions if necessary
 
-        return true;
+        for (char c : t.toCharArray()) {
+
+            if (!Character.isLetter(c)) {
+                return false;
+            }
+
+        }
+
+        for (String s : WordList.wordList) {
+
+            if (s.equalsIgnoreCase(t)) return true;
+
+        }
+
+        return false;
     }
 
     public void actionPerformed(ActionEvent e) {
