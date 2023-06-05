@@ -12,7 +12,7 @@ public class Board {
 
     public void initialize() {
 
-        word = WordList.getRandomWord();
+        word = WordList.getRandomWord().toUpperCase();
 
     }
 
